@@ -23,7 +23,7 @@ public class CardTrick {
     {
         Card[] magicHand = new Card[7];
         Random rnd = new Random();
-                
+        
         for (int i=0; i<magicHand.length; i++)
         {
             Card c = new Card();
@@ -32,19 +32,17 @@ public class CardTrick {
             
             magicHand[i] = c;
         }
+
+        Card luckyCard = new Card();
+        luckyCard.setValue(2);
+        luckyCard.setSuit(Card.SUITS[3]);
         
-        Scanner inp = new Scanner(System.in);
-      
-        System.out.print("Enter a card value (1-13): ");
-        int value = inp.nextInt();
-        System.out.print("Enter a suit (0-3 where 0=Hearts, 1=Diamonds, 2=Spades, 3=Clubs): ");
-        String suit = Card.SUITS[inp.nextInt()];
-        
+    
         boolean isFound = false;
         
         for (int i=0; i<magicHand.length; i++)
         {
-            if (magicHand[i].getValue() == value && magicHand[i].getSuit().equals(suit)) {
+            if (magicHand[i].getValue() == luckyCard.getValue() && magicHand[i].getSuit().equals(luckyCard.getSuit())) {
                 isFound = true;
                 break;
             }
@@ -56,6 +54,7 @@ public class CardTrick {
         else {
             System.out.println("Sorry, your card is not in the magic hand.");
         }
+
     }
     
 }
